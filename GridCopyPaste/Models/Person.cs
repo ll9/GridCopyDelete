@@ -13,7 +13,7 @@ namespace JsonSettings.Models
         Female
     }
 
-    class Person
+    public class Person
     {
         public Person()
         {

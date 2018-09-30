@@ -16,12 +16,20 @@ namespace JsonSettings
     public partial class Form1 : Form
     {
         private static string SettingsPath => Application.StartupPath + "\\" + "settings.json";
+        public List<Person> People { get; set; }
+        public List<HashSet<string>> AutoSuggest { get; set; }
 
         public Form1()
         {
             InitializeComponent();
             LoadSettings();
             InitContextMenu();
+            InitAutoSuggestions();
+        }
+
+        private void InitAutoSuggestions()
+        {
+            throw new NotImplementedException();
         }
 
         private void InitContextMenu()
@@ -60,9 +68,9 @@ namespace JsonSettings
 
             if (File.Exists(SettingsPath))
             {
-                var people = JsonConvert.DeserializeObject<List<Person>>(File.ReadAllText(SettingsPath));
+                People = JsonConvert.DeserializeObject<List<Person>>(File.ReadAllText(SettingsPath));
 
-                personBindingSource.DataSource = people;
+                personBindingSource.DataSource = People;
             }
             else
             {
@@ -73,8 +81,7 @@ namespace JsonSettings
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var people = personBindingSource.DataSource as List<Person>;
-            var str = JsonConvert.SerializeObject(people);
+            var str = JsonConvert.SerializeObject(People);
 
             File.WriteAllText(SettingsPath, str);
         }
