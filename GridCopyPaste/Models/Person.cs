@@ -15,6 +15,10 @@ namespace JsonSettings.Models
 
     class Person
     {
+        public Person()
+        {
+        }
+
         public Person(int id, string name, Gender gender)
         {
             Id = id;
