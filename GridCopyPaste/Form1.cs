@@ -17,7 +17,7 @@ namespace JsonSettings
     {
         private static string SettingsPath => Application.StartupPath + "\\" + "settings.json";
         public List<Person> People { get; set; }
-        public List<HashSet<string>> AutoSuggest { get; set; }
+        public List<HashSet<string>> AutoSuggest { get; set; } = new List<HashSet<string>>();
 
         public Form1()
         {
@@ -29,7 +29,20 @@ namespace JsonSettings
 
         private void InitAutoSuggestions()
         {
-            throw new NotImplementedException();
+            var colIndex = 0;
+            foreach (var prop in typeof(Person).GetProperties())
+            {
+                AutoSuggest.Add(new HashSet<string>());
+                for (int rowIndex = 0; rowIndex < People.Count; rowIndex++)
+                {
+                    var suggestion = prop.GetValue(People[rowIndex]);
+                    if (suggestion != null)
+                    {
+                        AutoSuggest[colIndex].Add(suggestion.ToString());
+                    }
+                }
+                colIndex++;
+            }
         }
 
         private void InitContextMenu()
@@ -102,7 +115,9 @@ namespace JsonSettings
                 if (prodCode != null)
                 {
                     prodCode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    prodCode.AutoCompleteCustomSource = new AutoCompleteStringCollection() { "Hans", "Jens" };
+                    var x = new AutoCompleteStringCollection();
+                    x.AddRange(AutoSuggest[personDataGridView.CurrentCell.ColumnIndex].ToArray());
+                    prodCode.AutoCompleteCustomSource = x;
                     prodCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 }
             }
