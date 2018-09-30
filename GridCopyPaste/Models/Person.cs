@@ -26,8 +26,8 @@ namespace JsonSettings.Models
             Gender = gender;
         }
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
-        public Gender Gender { get; set; }
+        public Gender? Gender { get; set; }
     }
 }

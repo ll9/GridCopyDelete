@@ -52,6 +52,7 @@
             // personDataGridView
             // 
             this.personDataGridView.AutoGenerateColumns = false;
+            this.personDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.personDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.personDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -62,6 +63,7 @@
             this.personDataGridView.Name = "personDataGridView";
             this.personDataGridView.Size = new System.Drawing.Size(343, 238);
             this.personDataGridView.TabIndex = 7;
+            this.personDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.personDataGridView_KeyUp);
             // 
             // dataGridViewTextBoxColumn1
             // 
