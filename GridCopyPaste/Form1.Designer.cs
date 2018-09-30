@@ -63,6 +63,7 @@
             this.personDataGridView.Name = "personDataGridView";
             this.personDataGridView.Size = new System.Drawing.Size(343, 238);
             this.personDataGridView.TabIndex = 7;
+            this.personDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.personDataGridView_EditingControlShowing);
             this.personDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.personDataGridView_KeyUp);
             // 
             // dataGridViewTextBoxColumn1

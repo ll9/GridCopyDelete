@@ -86,5 +86,19 @@ namespace JsonSettings
                 DeleteSelectedGridItem(this, e);
 
         }
+
+        private void personDataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (true)
+            {
+                TextBox prodCode = e.Control as TextBox;
+                if (prodCode != null)
+                {
+                    prodCode.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    prodCode.AutoCompleteCustomSource = new AutoCompleteStringCollection() { "Hans", "Jens" };
+                    prodCode.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                }
+            }
+        }
     }
 }
