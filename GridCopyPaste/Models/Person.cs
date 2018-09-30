@@ -19,15 +19,18 @@ namespace JsonSettings.Models
         {
         }
 
-        public Person(int id, string name, Gender gender)
+
+        public Person(int? id, string name, string straße, Gender? gender)
         {
             Id = id;
             Name = name;
+            Straße = straße;
             Gender = gender;
         }
 
         public int? Id { get; set; }
         public string Name { get; set; }
+        public string Straße { get; set; }
         public Gender? Gender { get; set; }
     }
 }

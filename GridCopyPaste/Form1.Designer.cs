@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.SaveButton = new System.Windows.Forms.Button();
             this.personDataGridView = new System.Windows.Forms.DataGridView();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Straße = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.personDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -57,14 +58,19 @@
             this.personDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
+            this.Straße,
             this.dataGridViewTextBoxColumn3});
             this.personDataGridView.DataSource = this.personBindingSource;
             this.personDataGridView.Location = new System.Drawing.Point(57, 29);
             this.personDataGridView.Name = "personDataGridView";
-            this.personDataGridView.Size = new System.Drawing.Size(343, 238);
+            this.personDataGridView.Size = new System.Drawing.Size(445, 238);
             this.personDataGridView.TabIndex = 7;
             this.personDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.personDataGridView_EditingControlShowing);
             this.personDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.personDataGridView_KeyUp);
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(JsonSettings.Models.Person);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -78,15 +84,17 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
+            // Straße
+            // 
+            this.Straße.DataPropertyName = "Straße";
+            this.Straße.HeaderText = "Straße";
+            this.Straße.Name = "Straße";
+            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Gender";
             this.dataGridViewTextBoxColumn3.HeaderText = "Gender";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(JsonSettings.Models.Person);
             // 
             // Form1
             // 
@@ -110,6 +118,7 @@
         private System.Windows.Forms.DataGridView personDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Straße;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
